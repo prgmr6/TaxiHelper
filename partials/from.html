@@ -1,0 +1,154 @@
+﻿<div class="container-fluid">
+    <div class="divHeader row">
+        <div class="div1"><a href="#/manifest/create" class="newLink">Create Manifest</a></div>
+        <div class="div2"><a href="#/manifest/end"  class="newLink">End Manifest</a></div>
+        <div class="div3"><a href="#/manifest/view"  class="newLink">View Manifest</a></div>
+        <div class="div4"><a href="#/manifest/from"  class="newLink">Create Trip</a></div>
+        <div class="div5"><a href="#/manifest" class="newLink">Log Out</a></div>
+    </div>
+    <div class="row-fluid" style="display:block;" id="firstPage">
+        <div class="span3" style="margin-bottom:15px;">
+            Step One
+            <a ng-click="stepTwo();">Step Two</a>
+            <a ng-click="stepThree();">Step Three</a>
+    </div>
+        <div id="locationField">
+            <input id="autocompleteFrom" placeholder="Enter your address" type="text" ng-focus="startTrip();" />
+        </div>
+        <table id="address" style="margin-bottom:15px;">
+            <tr>
+                <td class="label" style="color: black;">From Street Address</td>
+                <td class="slimField">
+                    <input 
+                        class="field" 
+                        data-ng-model="mapfromaddressnumber" 
+                        id="street_number" 
+                        beginTrip/></td>
+                <td class="wideField" colspan="2">
+                    <input class="field" id="route" 
+                        data-ng-model="mapfromaddress1" 
+                        beginDay /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">City</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="locality" data-ng-model="mapfromcity" /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">State</td>
+                <td class="slimField">
+                    <input class="field" id="administrative_area_level_1" data-ng-model="mapfromstate"/></td>
+                <td class="label" style="font-size: x-small; color: black;">Zip code</td>
+                <td class="wideField">
+                    <input class="field" id="postal_code" data-ng-model="mapfromzip"/></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">Country</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="country" data-ng-model="mapfromcountry"/></td>
+            </tr>
+        </table>
+    </div>
+    <div class="row-fluid" style="display:none;" id="secondPage">
+        <div class="span3" style="margin-bottom:15px;">
+            <a ng-click="stepOne();">Step One</a>
+            Step Two
+            <a ng-click="stepThree();">Step Three</a>
+        </div>
+        <div id="locationField">
+            <input id="autocompleteTo" placeholder="Enter your address" type="text" ng-focus="continueTrip();"/>
+        </div>
+        <table id="address" style="margin-bottom:15px;">
+            <tr>
+                <td class="label" style="color: black;">To Street Address</td>
+                <td class="slimField">
+                    <input 
+                        class="field" 
+                        data-ng-model="maptoaddressnumber" 
+                        id="street_number1" 
+                        beginTrip/></td>
+                <td class="wideField" colspan="2">
+                    <input class="field" id="route1" 
+                        data-ng-model="maptoaddress1" 
+                        beginDay /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">City</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="locality1" data-ng-model="maptocity" /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">State</td>
+                <td class="slimField">
+                    <input class="field" id="administrative_area_level_11" data-ng-model="maptostate"/></td>
+                <td class="label" style="font-size: x-small; color: black;">Zip code</td>
+                <td class="wideField">
+                    <input class="field" id="postal_code1" data-ng-model="maptozip"/></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">Country</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="country1" data-ng-model="maptocountry"/></td>
+            </tr>
+        </table>
+    </div>
+    <div class="row-fluid"  style="display:none;" id="thirdPage">
+        <div class="span3 style="margin-bottom:15px;">
+            <input type="button" data-ng-click="startTime();" value="Start Time"/>
+            <input type="button" data-ng-click="endTime();" value="End Time"   />
+            <a ng-click="stepOne();">Step One</a>
+            <a ng-click="stepOne();">Step Two</a>
+            Step Three
+        </div>
+        <table id="address" style="margin-bottom:15px;margin-top:15px;">
+            <tr>
+                <td class="label" style="color:black;">Begin Time</td>
+                <td class="slimField">
+                    <input class="field" data-ng-model="timeStarted" type="text" />
+                </td>
+                <td class="label" style="color:black;">End Time</td>
+                <td class="slimField">
+                    <input class="field" data-ng-model="timeEnded" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color:black;">Passengers</td>
+                <td class="slimField">
+                    
+                    <select id="Select1"class="field" name="D1" data-ng-model="passengerCount">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select></td>
+                <td class="label" style="color:black;">Fare</td>
+                <td class="slimField">
+                    <input class="field" data-ng-model="fare" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color:black;">Extras</td>
+                <td class="wideField" colspan="3">
+                <input class="field" data-ng-model="extras" type="text" />
+                    </td>
+                    
+            </tr>
+            <tr>
+                <td class="label" style="color:black;">Comments</td>
+                <td class="wideField" colspan="3">
+                <input class="field" data-ng-model="comments" type="text" aria-multiline="true" />
+                    </td>
+            </tr>
+        </table>
+        <div class="span3">
+            <input type="button" data-ng-click="updateTrip();" value="Update Trip"/>
+            <br />
+        </div>
+        <div class="span3">
+            <div id="Div3"></div>
+        </div>
+    </div>
+    <div class="span3">
+        <div id="map-canvas"></div>
+    </div>
+</div>

@@ -1,0 +1,199 @@
+﻿<div class="container-fluid">
+    <div class="divHeader row">
+        <div class="div1"><a href="#/manifest/create" class="newLink">Create Manifest</a></div>
+        <div class="div2"><a href="#/manifest/end"  class="newLink">End Manifest</a></div>
+        <div class="div3"><a href="#/manifest/view"  class="newLink">View Manifest</a></div>
+        <div class="div4"><a href="#/manifest/from"  class="newLink">Create Trip</a></div>
+        <div class="div5"><a href="#/manifest" class="newLink">Log Out</a></div>
+    </div>
+    <div class="row-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="it11">
+                    Cab:
+                    <input data-ng-model="cabno" style="width:45px;text-align:center;"/>
+                </div>
+                <div class="it1">
+                    Driver:
+                    <input data-ng-model="driver"  style="width:125px;text-align:center;"/>
+                </div>
+                <div class="it1">
+                    Date:
+                    <input data-ng-model="query" type="date" style="height:24px;width:140px;text-align:center;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" data-ng-repeat="phone in phones | textFilter : query">
+    <div class="row-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6" style=""><span>NO FLAT RATES -</span><span>Flag must be down on all jobs</span></div>
+                <div class="col-xs-6 col-sm-6" style="font-size:x-large;">JIMMY'S CAB CO.</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6" style="">ITEMIZE CASH EXPENSES</div>
+            </div>
+            <div class="row" style="margin-left:20px;">
+                <div class="it">OIL</div>
+                <div class="it">FLATS</div>
+                <div class="it">REPAIRS</div>
+                <div class="it">OTHER</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4" style="font-size:x-small";>TIME STARTED: {{phone.daytimeStarted}}</div>
+                <div class="col-xs-6 col-sm-6" style="font-size: x-small";>TIME CHECKED OUT: {{phone.daytimeEnded}}</div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <table style="border: 1px solid black;">
+                <tr>
+                    <td style="vertical-align:top;text-align:left;">
+                        <table  style="border: 1px solid black; font-size: smaller;">
+                            <tr>
+                                <td style="text-align: center;line-height:20px;" colspan="5">METER READING</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;"></td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">UNITS</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">MILES</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">TRIPS</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">PAY-MILES</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:20px;padding-left:3px;padding-right:3px;">IN</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">{{phone.inUnits}}</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">{{phone.inTotalMiles}}</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">{{phone.inTrips}}</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:20px;padding-left:3px;padding-right:3px;">OUT</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">{{phone.outUnits}}</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">{{phone.outTotalMiles}}</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">{{phone.outTrips}}</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:20px;padding-left:3px;padding-right:3px;">REVISED</td>
+                                <td style="border: 1px solid black; font-size: smaller;"></td>
+                                <td style="border: 1px solid black; font-size: smaller;"></td>
+                                <td style="border: 1px solid black; font-size: smaller;"></td>
+                                <td style="border: 1px solid black; font-size: smaller;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:20px;padding-left:3px;padding-right:3px;">TOTAL</td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">
+                                    <div ng-if="phone.inUnits > 0">
+                                        {{ phone.inUnits - phone.outUnits}}
+                                    </div>
+                                    <div ng-if="phone.inUits == null">
+                                    </div>
+
+                                </td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">
+                                    <div ng-if="phone.inTotalMiles > 0">
+                                        {{ phone.inTotalMiles - phone.outTotalMiles}}
+                                    </div>
+                                    <div ng-if="phone.inTotalMiles == null">
+                                    </div>
+                                </td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;">
+                                    <div ng-if="phone.inTrips > 0">
+                                        {{ phone.inTrips - phone.outTrips }}
+                                    </div>
+                                    <div ng-if="phone.inTrips == null">
+                                    </div>
+                                </td>
+                                <td style="border: 1px solid black; font-size: smaller;padding-left:3px;padding-right:3px;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="vertical-align:top;text-align:left;">
+                        <table style="border: 1px solid black; font-size: smaller;">
+                            <tr>
+                                <td style="border: 1px solid black; font-size: x-small;line-height:10px;padding:0px;margin:0px;">UNITS</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.units" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: xx-small;line-height:10px;padding:0px;margin:0px;">TRIPS</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.units" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">EXTRAS</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.extras" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">GROSS</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.gross" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">GAS</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.gas" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">NET</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.net" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">U2</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.utwo" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">CHGS</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.chgs" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">REP</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.rep" style="height:16px;width:70px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; font-size: smaller;line-height:10px;padding:0px;margin:0px;">NET</td>
+                                <td style="line-height:10px;padding:0px;margin:0px;"><input data-ng-model="phone.net" style="height:16px;width:70px;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="border: 1px solid black; font-size: smaller; vertical-align:top; text-align: left;">
+                        <table>
+                            <tr>
+                                <td>Comments</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="8" cols="33" data-ng-model="phone.comments"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <table>
+                <thead>
+                    <tr>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">FROM</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">TO</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">Pass</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">Began</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">End</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">Fare</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">Extras</td>
+                        <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">Notes</td>
+                    </tr>
+                </thead>
+                <tr data-ng-repeat="trip in phone.trips">
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;min-width:125px;">{{trip.startAddress}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;min-width:125px;">{{trip.endAddress}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;text-align:center;">{{trip.passengers}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;min-width:75px;">{{trip.timeStart}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;min-width:75px;">{{trip.timeEnd}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;text-align:center;">{{trip.meterFare}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">{{trip.extras}}</td>
+                    <td style="border: 1px solid black; font-size: small;padding-left:3px;padding-right:3px;">{{trip.notes}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

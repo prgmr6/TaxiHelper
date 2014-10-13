@@ -1,0 +1,46 @@
+﻿<div class="container-fluid">
+    <div class="divHeader row">
+        <div class="div1"><a href="#/manifest/create" class="newLink">Create Manifest</a></div>
+        <div class="div2"><a href="#/manifest/end" class="newLink">End Manifest</a></div>
+        <div class="div3"><a href="#/manifest/view" class="newLink">View Manifest</a></div>
+        <div class="div4"><a href="#/manifest/from" class="newLink">Create Trip</a></div>
+        <div class="div5"><a href="#/manifest" class="newLink">Log Out</a></div>
+    </div>
+    <div class="span3" style="margin-bottom:15px;">
+        <input type="button" value="Save" data-ng-click="saveManifest();" />
+    </div>
+    <div class="span2">
+        <table id="address">
+            <tr>
+                <td class="label" style="color: black;">Manifest Date</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" data-ng-model="currentDate" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">Time Started</td>
+                <td class="wideField" colspan="3">
+                    <input class="field"
+                        data-ng-model="timeCreated"
+                        id="ng-change-color"
+                        ng-focus="startDay();" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">Out Units</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" data-ng-model="outUnits" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="label" style="color: black;">Out Total Miles</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" data-ng-model="outTotalMiles" type="text" /></td>
+            </tr>
+            <tr>
+            <tr>
+                <td class="label" style="color: black;">Out Trips</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" data-ng-model="outTrips" type="text" /></td>
+            </tr>
+        </table>
+    </div>
+</div>

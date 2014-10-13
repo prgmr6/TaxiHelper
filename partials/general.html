@@ -1,0 +1,23 @@
+﻿<div class="container-fluid">
+    <div class="divHeader row">
+        <div class="div1"><a href="#/manifest/create" class="newLink">Create Manifest</a></div>
+        <div class="div2"><a href="#/manifest/end" class="newLink">End Manifest</a></div>
+        <div class="div3"><a href="#/manifest/view" class="newLink">View Manifest</a></div>
+        <div class="div4"><a href="#/manifest/from" class="newLink">Create Trip</a></div>
+        <div class="div5"><a href="#/manifest" class="newLink">Log Out</a></div>
+    </div>
+    <div class="container-fluid">
+        <table>
+           <thead>
+               <tr>
+                   <td style="border: 1px solid black; padding-left:3px;padding-right:3px;background-color:darkblue;color:white;width:75px;">Code</td>
+                   <td style="border: 1px solid black; padding-left:3px;padding-right:3px;background-color:darkblue;color:white;">Message</td>
+               </tr>
+           </thead>
+           <tr data-ng-repeat="step in generalInformation">
+               <td style="border: 1px solid black; padding-left:3px;padding-right:3px;color:black;">{{step.Code}}</td>
+               <td style="border: 1px solid black; padding-left:3px;padding-right:3px;color:black;">{{step.Message}}</td>
+           </tr>
+        </table>
+    </div>
+</div>
